@@ -1,4 +1,5 @@
 [![Build Status](https://img.shields.io/travis/dmlc/xgboost.svg?label=build&logo=travis&branch=master)](https://travis-ci.com/mimosinnet/P6-Color-RangeToColor)
+[![GitHub licence](http://dmlc.github.io/img/apache2.svg)](./LICENCE)
 
 # Name
 
