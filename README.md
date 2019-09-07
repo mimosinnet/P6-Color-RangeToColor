@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/dmlc/xgboost.svg?label=build&logo=travis&branch=master)](https://travis-ci.com/mimosinnet/P6-Color-RangeToColor)
+
 # Name
 
 Color::RangeToColor - Given a range from $lower_value to $upper_value and a $value in that range, translate the value to an Hex color code from red to green.
