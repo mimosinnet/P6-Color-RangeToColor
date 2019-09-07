@@ -12,7 +12,7 @@
   "provides" : {
     "Color::RangeToColor" : "lib/Color/RangeToColor.pm6"
   },
-  "version" : "0.0.1",
+  "version" : "0.0.2",
   "meta-version" : "0",
   "authors" : [
     "Joan Pujol (Mimosinnet)"
