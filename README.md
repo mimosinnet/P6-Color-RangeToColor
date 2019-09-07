@@ -31,6 +31,9 @@ Color::RangeToColor - Given a range from $lower_value to $upper_value and a $val
 
 This code is include in the folder _examples_.
 
+# INSTALL
+
+    zef install -v https://github.com/mimosinnet/P6-Color-RangeToColor.git
 
 # DESCRIPTION
 
