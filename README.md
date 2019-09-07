@@ -1,9 +1,11 @@
-# NAME
+# Name
 
 Color::RangeToColor - Given a range from $lower_value to $upper_value and a $value in that range, translate the value to an Hex color code from red to green.
 
-# SYNOPSIS
+# Synopsis
 
+    # Create two lines of coloured html code based on a range from 1 to 30.
+    # Locate value 10, with its corresponding colour, in the range.
     use Color::RangeToColor :get_color_code;
     my ($value, $lower_value, $upper_value) = ( 10.Rat , 1, 30);
     my ($line1, $line2);
@@ -31,16 +33,22 @@ Color::RangeToColor - Given a range from $lower_value to $upper_value and a $val
 
 This code is include in the folder _examples_.
 
-# INSTALL
+# Description
+
+This module gives the hex color code (from red to green) of a given value considering the range of the scale. The color code in the 30 color red-green gradient is obtained using a linear transformation of the value. 
+
+The code in the examples directory illustrate how to use the module.
+
+# Installation
 
     zef install -v https://github.com/mimosinnet/P6-Color-RangeToColor.git
 
-# DESCRIPTION
+# Support
 
-This module gives the hex color code (from red to green) of a given value considering the range of the scale. The color code from the 30 color red-green gradient is obtained using a linear transformation of the value. 
+Suggestions/patches are welcomed via github at <https://github.com/mimosinnet/P6-Color-RangeToColor>
 
-The code in the examples directory ilustrate how to use the module.
+# Licence
 
-# AUTHOR
+Please see the [LICENCE](https://github.com/mimosinnet/P6-Color-RangeToColor/blob/master/LICENCE) file in the distribution.
 
-Joan Pujol (Mimosinnet)
+© Joan Pujol (Mimosinnet)
