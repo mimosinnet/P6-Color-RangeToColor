@@ -41,9 +41,3 @@ The code in the examples directory ilustrate how to use the module.
 # AUTHOR
 
 Joan Pujol (Mimosinnet)
-
-# COPYRIGHT AND LICENSE
-
-Copyright © Joan Pujol ( mimosinnet_at_gmail.com )
-License GPLv3 The GNU General Public License.
-This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
