@@ -1,4 +1,3 @@
-use lib $*PROGRAM.parent(2);
 use Color::RangeToColor :get_color_code;
 
 my ($value, $lower_value, $upper_value) = ( 10.Rat , 1, 30);

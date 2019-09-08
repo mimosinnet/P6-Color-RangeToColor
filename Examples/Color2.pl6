@@ -1,5 +1,3 @@
-# Example of Repo::Utils::Color from -30 to 30
-use lib $*PROGRAM.parent(2);
 use Color::RangeToColor :get_color_code;
 
 my $inicial = -30;
