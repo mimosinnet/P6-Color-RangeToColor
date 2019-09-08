@@ -37,9 +37,14 @@ This code is include in the folder _examples_.
 
 # Description
 
-This module gives the hex color code (from red to green) of a given value considering the range of the scale. The color code in the 30 color red-green gradient is obtained using a linear transformation of the value. 
+This module gives the hex color code (from red to green) of a given value considering the range of the scale. The color code in the 30 color red-green gradient is obtained using a linear transformation of the value. There are some illustrations in the examples directory.
 
-The code in the examples directory illustrate how to use the module.
+# Functions
+
+The module defines the function get_color_code:
+
+get_color_code( Rat $value, Numeric :$lower_value, Numeric :$upper_value --> Str )
+
 
 # Installation
 
