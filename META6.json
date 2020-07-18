@@ -5,14 +5,14 @@
     "source" : "https://github.com/mimosinnet/P6-Color-RangeToColor.git"
   },
   "perl" : "6.c",
-  "license" : "GPL-3.0",
+  "license" : "Artistic-2.0",
   "test-depends" : [
     "Test::META"
   ],
   "provides" : {
     "Color::RangeToColor" : "lib/Color/RangeToColor.pm6"
   },
-  "version" : "0.0.2",
+  "version" : "0.0.3",
   "meta-version" : "0",
   "authors" : [
     "Joan Pujol (Mimosinnet)"
