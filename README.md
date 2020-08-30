@@ -6,37 +6,38 @@ Color::RangeToColor - Given a range from $lower-value to $upper-value and a $val
 
 # Synopsis
 
-  use Color::RangeToColor :get_color_code;
+The following example:
+- defines a range from $lower-value to $upper-value and a $value within that range.
+- transform the values to the range of default color codes.
+- creates HTML file to show color range and the value within the color range.
+- displays the file with elinks
 
-  # Define a range from $lower-value to $upper-value and a $value within that range.
-  # Transform the values to the range of default color codes.
-  # Creates HTML file to show color range and the value within the color range.
-  # Displays the file with elinks
+    use Color::RangeToColor :get_color_code;
 
-  my ($value, $lower-value, $upper-value) = ( 10, 1, 30 );
-  my ($line1, $line2);
+    my ($value, $lower-value, $upper-value) = ( 10, 1, 30 );
+    my ($line1, $line2);
 
-  my $color-start = '<span style="background-color : ';
-  my $color-end   = '">&nbsp;</span>';
-  my $line-end    = '<span style="background-color: black">&nbsp</span><br/>';
+    my $color-start = '<span style="background-color : ';
+    my $color-end   = '">&nbsp;</span>';
+    my $line-end    = '<span style="background-color: black">&nbsp</span><br/>';
 
-  for ($lower-value..$upper-value) -> $v {
-    my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
-    $line1 ~= "$color-start $color $color-end";
-  }
-
-  for ($lower-value..$upper-value) -> $v {
-    my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
-    if $v eq $value {
-      $line2 ~= "$color-start $color" ~ '">O</span>';
-      next;
+    for ($lower-value..$upper-value) -> $v {
+      my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
+      $line1 ~= "$color-start $color $color-end";
     }
-    $line2 ~= "$color-start $color $color-end";
-  }
 
-  spurt '/tmp/borrem.html', "$line1 $line-end $line2 $line-end $line1 $line-end";
+    for ($lower-value..$upper-value) -> $v {
+      my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
+      if $v eq $value {
+        $line2 ~= "$color-start $color" ~ '">O</span>';
+        next;
+      }
+      $line2 ~= "$color-start $color $color-end";
+    }
 
-  run <elinks -dump -dump-color-mode 3 /tmp/borrem.html>;
+    spurt '/tmp/borrem.html', "$line1 $line-end $line2 $line-end $line1 $line-end";
+
+    run <elinks -dump -dump-color-mode 3 /tmp/borrem.html>;
 
 
 This code is include in the folder _examples_.
@@ -51,11 +52,11 @@ The module defines these funtions:
 
 get_color_code( Rat :$value, Numeric :$lower-value, Numeric :$upper-value --> Str )
 
-  Obtains the color code of a $value in a scale from $lower-value to $upper-value
+    Obtains the color code of a $value in a scale from $lower-value to $upper-value
 
 gradient_generator( Str :$initial-color = '#FF0000', Str :$final-color = '#00FF00', Int :$gradient = 10) 
 
-  Creates a gradient of $gradient items from $initial-color to $final-color with pre-defined default values.
+    Creates a gradient of $gradient items from $initial-color to $final-color with pre-defined default values.
 
 # Installation
 
