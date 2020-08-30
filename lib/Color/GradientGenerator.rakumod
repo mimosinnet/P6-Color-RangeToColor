@@ -1,21 +1,16 @@
 unit module Color::GradientGenerator;
 
-sub gradient_generator( Str :$initial_color = '#FF0000', Str :$final_color = '#00FF00', Int :$gradient = 10) is export(:gradient_generator) {
+sub gradient_generator( Str :$initial-color = '#FF0000', Str :$final-color = '#00FF00', Int :$gradient = 10) is export(:gradient_generator) {
 
-  my @initial   = ($initial_color ~~ /\#(..)(..)(..)/).list.map: { .Str.parse-base(16) };
-  my @final     = ($final_color   ~~ /\#(..)(..)(..)/).list.map: { .Str.parse-base(16) };
-  my @range     = @final Z- @initial; 
-  my @increment = @range.map: { $_ / $gradient };
+  # Transform Str HEX to Array (R,G,B)
+  my @RGB-ini-color   = $initial-color.substr(1).comb(2)».parse-base(16);
+  my @RGB-final-color = $final-color.substr(1).comb(2)».parse-base(16);
+  my @RGB-range       = @RGB-final-color «-» @RGB-ini-color; 
+  my @RGB-increment   = @RGB-range «/» $gradient;
 
-  my @gradient;
-  @gradient.push: @initial;
-  for (1..$gradient) -> $i {
-    @gradient.push: @(@gradient[$i-1]) Z+ @increment;
-  }
+  # RGB gradient: inicial-color, range from (initial-color + increment) TO (watever matches final-color)
+  my @RGB-gradient    = @RGB-ini-color, { @^a «+» @RGB-increment } ... (* ~~ @RGB-final-color);
 
-  for (0..$gradient) -> $i {
-    @gradient[$i] = '#' ~ ( @(@gradient[$i]).map: { .base(16,0).fmt('%02s') } ).join;
-  }
-
-  return @gradient;
+  # Return (R,G,B) to HEX 
+  return @RGB-gradient.map: '#' ~ *.fmt: '%02X', q{} ;
 }

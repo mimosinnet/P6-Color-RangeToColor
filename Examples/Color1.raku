@@ -1,28 +1,30 @@
 use Color::RangeToColor :get_color_code;
 
-my ($value, $lower-value, $upper-value) = ( 10.Rat , 1, 30);
+# Define a range from $lower-value to $upper-value and a $value within that range.
+# Transform the values to the range of default color codes.
+# Creates HTML file to show color range and the value within the color range. 
+
+my ($value, $lower-value, $upper-value) = ( 10, 1, 30 );
 my ($line1, $line2);
 
-my $start   = '<span style="background-color : ';
-my $end     = '">&nbsp;</span>';
-my $endline = '<span style="background-color: black">&nbsp</span><br/>';
+my $color-start = '<span style="background-color : ';
+my $color-end   = '">&nbsp;</span>';
+my $line-end    = '<span style="background-color: black">&nbsp</span><br/>';
 
 for ($lower-value..$upper-value) -> $v {
   my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
-  $line1 ~= "$start $color $end";
+  $line1 ~= "$color-start $color $color-end";
 }
 
 for ($lower-value..$upper-value) -> $v {
   my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
   if $v eq $value {
-    $line2 ~= "$start $color" ~ '">O</span>';
+    $line2 ~= "$color-start $color" ~ '">O</span>';
     next;
   }
-  $line2 ~= "$start $color $end";
+  $line2 ~= "$color-start $color $color-end";
 }
 
-my $fh = open '/tmp/borrem.html', :w;
-$fh.print: "$line1 $endline $line2 $endline $line1 $endline";
-$fh.close;
+spurt '/tmp/borrem.html', "$line1 $line-end $line2 $line-end $line1 $line-end";
 
 run <elinks -dump -dump-color-mode 3 /tmp/borrem.html>;
