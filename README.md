@@ -6,11 +6,7 @@ Color::RangeToColor - Given a range from $lower-value to $upper-value and a $val
 
 # Synopsis
 
-The following example:
-- defines a range from $lower-value to $upper-value and a $value within that range.
-- transform the values to the range of default color codes.
-- creates HTML file to show color range and the value within the color range.
-- displays the file with elinks
+The following example: (a) defines a range from $lower-value to $upper-value and a $value within that range; (b) transform the values to the range of default color codes; (c) creates HTML file to show color range and the value within the color range; (d) displays the file with elinks
 
     use Color::RangeToColor :get_color_code;
 
