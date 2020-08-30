@@ -10,9 +10,10 @@
     "Test::META"
   ],
   "provides" : {
-    "Color::RangeToColor" : "lib/Color/RangeToColor.pm6"
+    "Color::RangeToColor"      : "lib/Color/RangeToColor.rakumod",
+    "Color::GradientGenerator" : "lib/Color/GradientGenerator.rakumod"
   },
-  "version" : "0.0.3",
+  "version" : "0.0.4",
   "meta-version" : "0",
   "authors" : [
     "Joan Pujol (Mimosinnet)"

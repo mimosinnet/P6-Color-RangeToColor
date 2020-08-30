@@ -2,27 +2,27 @@
 
 # Name
 
-Color::RangeToColor - Given a range from $lower_value to $upper_value and a $value in that range, translate the value to an Hex color code from red to green.
+Color::RangeToColor - Given a range from $lower-value to $upper-value and a $value in that range, translate the value to an Hex color code from red to green.
 
 # Synopsis
 
     # Create two lines of coloured html code based on a range from 1 to 30.
     # Locate value 10, with its corresponding colour, in the range.
     use Color::RangeToColor :get_color_code;
-    my ($value, $lower_value, $upper_value) = ( 10.Rat , 1, 30);
+    my ($value, $lower-value, $upper-value) = ( 10.Rat , 1, 30);
     my ($line1, $line2);
 
     my $start   = '<span style="background-color : ';
     my $end     = '">&nbsp;</span>';
     my $endline = '<span style="background-color: black">&nbsp</span><br/>';
 
-    for ($lower_value..$upper_value) -> $scale {
-      my $color = get_color_code( $scale.Rat, lower_value => $lower_value, upper_value => $upper_value );
+    for ($lower-value..$upper-value) -> $scale {
+      my $color = get_color_code( $scale.Rat, lower_value => $lower-value, upper_value => $upper-value );
       $line1 ~= "$start $color $end";
     }
 
-    for ($lower_value..$upper_value) -> $scale {
-      my $color = get_color_code( $scale.Rat, lower_value => $lower_value, upper_value => $upper_value );
+    for ($lower-value..$upper-value) -> $scale {
+      my $color = get_color_code( $scale.Rat, lower_value => $lower-value, upper_value => $upper-value );
       if $scale eq $value {
         $line2 ~= "$start $color" ~ '">O</span>';
         next;
@@ -43,7 +43,7 @@ This module gives the hex color code (from red to green) of a given value consid
 
 The module defines the function get_color_code:
 
-get_color_code( Rat $value, Numeric :$lower_value, Numeric :$upper_value --> Str )
+get_color_code( Rat $value, Numeric :$lower-value, Numeric :$upper-value --> Str )
 
 
 # Installation

@@ -1,20 +1,20 @@
 use Color::RangeToColor :get_color_code;
 
-my ($value, $lower_value, $upper_value) = ( 10.Rat , 1, 30);
+my ($value, $lower-value, $upper-value) = ( 10.Rat , 1, 30);
 my ($line1, $line2);
 
 my $start   = '<span style="background-color : ';
 my $end     = '">&nbsp;</span>';
 my $endline = '<span style="background-color: black">&nbsp</span><br/>';
 
-for ($lower_value..$upper_value) -> $scale {
-  my $color = get_color_code( $scale.Rat, lower_value => $lower_value, upper_value => $upper_value );
+for ($lower-value..$upper-value) -> $v {
+  my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
   $line1 ~= "$start $color $end";
 }
 
-for ($lower_value..$upper_value) -> $scale {
-  my $color = get_color_code( $scale.Rat, lower_value => $lower_value, upper_value => $upper_value );
-  if $scale eq $value {
+for ($lower-value..$upper-value) -> $v {
+  my $color = get_color_code( value => $v.Rat, :$lower-value, :$upper-value );
+  if $v eq $value {
     $line2 ~= "$start $color" ~ '">O</span>';
     next;
   }
