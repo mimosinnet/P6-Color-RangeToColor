@@ -62,8 +62,8 @@ gradient_generator( Str :$initial-color = '#FF0000', Str :$final-color = '#00FF0
 
 Suggestions/patches are welcomed via github at <https://github.com/mimosinnet/P6-Color-RangeToColor>
 
-# Licence
+# License
 
-Please see the [LICENCE](https://github.com/mimosinnet/P6-Color-RangeToColor/blob/master/LICENCE) file in the distribution.
+Please see the [LICENSE](https://github.com/mimosinnet/P6-Color-RangeToColor/blob/master/LICENCE) file in the distribution.
 
 © Joan Pujol (Mimosinnet)
